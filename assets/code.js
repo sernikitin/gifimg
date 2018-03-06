@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     function displayPic() {
         var searchWas = $(this).attr("data-name");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + searchWas + "&api_key=N1GOuKpOBUZYbPYyfNR3HHJGyeKUsrGu&limit=8";
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + searchWas + "&api_key=ivZ1e4C58StoCCZcRa3s4zTvf47LqPZ6&limit=8";
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -16,9 +16,9 @@ $(document).ready(function () {
             console.log(response)
 
             $(".gif").mouseover(
-                function(){
+                function () {
                     var state = $(this).attr("data-state");
-    
+
                     if (state === "still") {
                         $(this).attr("src", $(this).attr("data-animate"));
                         $(this).attr("data-state", "animate");
@@ -26,10 +26,10 @@ $(document).ready(function () {
                         $(this).attr("src", $(this).attr("data-still"));
                         $(this).attr("data-state", "still");
                     }
-    
 
-             
-        
+
+
+
                 });
 
         });
@@ -37,20 +37,19 @@ $(document).ready(function () {
     function searchForGif(response) {
         $("#dopring").empty()
         var results = response.data;
-
-
         for (var i = 0; i < results.length; i++) {
-
             var imgLocation = $("<div class='userPick'>");
-
+            var rating = results[i].rating;
+            var title = results[i].title;
             var urlStill = results[i].images.fixed_height_still.url;
             var urlPlay = results[i].images.fixed_height.url;
-
             var gif = $("<img>").addClass("gif").attr("src", urlStill).attr("data-still", urlStill).attr("data-animate", urlPlay).attr("data-state", "still");
-
-            imgLocation.append(gif)
+            var dropTitle = $("<div class = 'raiting drop'>").text("#"+title)
+            var dropRaiting = $("<div class = 'raiting drop'>").text("Raiting:"+rating)
+            imgLocation.append(gif);
+            imgLocation.append(dropTitle);
+            imgLocation.append(dropRaiting);
             $("#dopring").append(imgLocation);
-
 
         }
     }

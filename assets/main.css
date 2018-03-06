@@ -1,20 +1,25 @@
-.gif
-{
-
-float:left;
-margin: 0px;
-padding: 12px;
+.gif {
+    float: left;
+    margin: 0px;
+    padding: 12px;
 }
-#buttons-view, #view{
+
+#buttons-view,
+#view {
     padding: 10px;
 }
-body, html {
-   
+.userPick{
+    display: inline-block;
+}
+body,
+html {
     background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg");
     /* background-size: cover; */
     background-repeat: no-repeat;
 }
-                 /* { 
+
+
+/* { 
                      The image used
                 
 
@@ -26,9 +31,14 @@ body, html {
                     background-repeat: no-repeat;
                 
                 } */
-                .center {
-                    margin: auto;
-                    width: 50%;
-                    text-align: center;
-                    padding: 10px;
-                }
+
+.center {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+}
+
+.pic {
+    margin-right: 5px;
+}
